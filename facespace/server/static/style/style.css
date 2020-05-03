@@ -198,7 +198,7 @@ ul {
   width: 100%;
 }
 
-@keyframes activity-indicator {
+@-webkit-keyframes activity-indicator {
   0% {
     opacity: 0%;
   }
@@ -208,12 +208,12 @@ ul {
   }
 }
 
-@-webkit-keyframes activity-indicator {
-  0% {
+@keyframes activity-indicator {
+  from {
     opacity: 0%;
   }
 
-  100% {
+  to {
     opacity: 100%;
   }
 }
