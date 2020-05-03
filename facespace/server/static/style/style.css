@@ -161,6 +161,7 @@ ul {
 /* Indicator Blades */
 
 .activity-indicator-blade {
+  -webkit-animation: activity-indicator 1.2s linear infinite;
   animation: activity-indicator 1.2s linear infinite;
   border-radius: 20%;
   display: block;
