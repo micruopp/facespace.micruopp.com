@@ -161,7 +161,6 @@ ul {
 /* Indicator Blades */
 
 .activity-indicator-blade {
-  -webkit-animation: activity-indicator 1.2s linear infinite;
   animation: activity-indicator 1.2s linear infinite;
   border-radius: 20%;
   display: block;
@@ -198,23 +197,13 @@ ul {
   width: 100%;
 }
 
-@-webkit-keyframes activity-indicator {
-  0% {
-    opacity: 0%;
-  }
-
-  100% {
-    opacity: 100%;
-  }
-}
-
 @keyframes activity-indicator {
   from {
-    opacity: 0%;
+    opacity: 100%;
   }
 
   to {
-    opacity: 100%;
+    opacity: 0%;
   }
 }
 
