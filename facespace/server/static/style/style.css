@@ -99,13 +99,13 @@ ul {
 }
 
 .header {
-  flex: 1 0 0;
+  flex: 1 0 auto;
 }
 
 .main {
   align-items: center;
   display: flex;
-  flex: 1.5 0 0;
+  flex: 1.5 0 auto;
   flex-direction: column;
   justify-content: space-around;
 }
@@ -113,12 +113,13 @@ ul {
 .box {
   align-items: center;
   display: flex;
+  flex: 0 0 auto;
   flex-direction: column;
-  padding: 1.5rem 1rem 4rem;
+  /*padding: 1.5rem 1rem 4rem;*/
 }
 
 .footer {
-  flex: 0 0 0;
+  flex: 0 0 auto;
 }
 
 /* */
