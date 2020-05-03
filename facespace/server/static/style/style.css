@@ -6,7 +6,15 @@
  */
 
 :root {
+  --background-color: #111;
+  --font-main-color: #dedede;
+  --font-main-family: 'Avenir', 'Arial', sans;
 
+  --activity-color: rgba(193, 193, 193, 0.75);
+  --activity-indicator-height: 30%;
+  --activity-indicator-width: 10%;
+  --activity-indicator-ratio: 33.3%;
+  /*--activity-status*/
 }
 
 /* zero.css */
@@ -73,24 +81,184 @@ ul {
 
 /* FaceSpace */
 #facespace {
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans;
+  background-color: var(--background-color);
+  color: var(--font-main-color);
+	font-family: var(--font-main-family);
 }
 
 /* */
 
 .container {
+  align-items: center;
 	display: flex;
 	flex: 1 0 0;
   flex-direction: column;
+  justify-content: space-between;
   margin: auto;
+  min-height: 100%;
+}
+
+.header {
+  flex: 1 0 0;
+}
+
+.main {
+  align-items: center;
+  display: flex;
+  flex: 1.5 0 0;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.box {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem 4rem;
+}
+
+.footer {
+  flex: 0 0 0;
 }
 
 /* */
 
 .legal {
-  font-size: .9rem;
+  font-size: .8rem;
+  padding: 1rem;
+  text-align: center;
 }
 
 .title {
-  /*font-size: ;*/
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans;
+  font-size: 3rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Activity Indicator */
+
+.activity-indicator {
+  display: block;
+  height: 2rem;
+  position: relative;
+  width: 2rem;
+}
+
+.activity-status {
+  color: var(--activity-color);
+  font-family: ;
+  font-size: ;
+  font-style: italic;
+  font-weight: ;
+  padding: 1rem;
+}
+
+/* Indicator Blades */
+
+.activity-indicator-blade {
+  animation: activity-indicator 1.2s linear infinite;
+  border-radius: 20%;
+  display: block;
+  height: var(--activity-indicator-height);
+  position: absolute;
+  width: var(--activity-indicator-width);
+}
+
+.activity-indiciator-blade-top {
+  background-color: var(--activity-color);
+  border-radius: 50%;
+  padding-top: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.activity-indiciator-blade-mid {
+  background-color: var(--activity-color);
+  height: calc(100% - var(--activity-indicator-ratio));
+  padding-top: 100%;
+  margin-top: 50%;
+  margin-bottom: 50%;
+  position: absolute;
+  width: 100%;
+}
+
+.activity-indiciator-blade-bot {
+  background-color: var(--activity-color);
+  border-radius: 50%;
+  bottom: 0;
+  padding-top: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+@keyframes activity-indicator {
+  0% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+.activity-indicator-blade:nth-child(1) {
+  animation-delay: 0s;
+  transform: translate(450.0%, 0.0%) rotate(0);
+}
+
+.activity-indicator-blade:nth-child(2) {
+  animation-delay: .1s;
+  transform: translate(625.0%, 15.6%) rotate(30deg);
+}
+
+.activity-indicator-blade:nth-child(3) {
+  animation-delay: .2s;
+  transform: translate(753.1%, 58.3%) rotate(60deg);
+}
+
+.activity-indicator-blade:nth-child(4) {
+  animation-delay: .3s;
+  transform: translate(800.0%, 116.7%) rotate(90deg);
+}
+
+.activity-indicator-blade:nth-child(5) {
+  animation-delay: .4s;
+  transform: translate(753.1%, 175.0%) rotate(120deg);
+}
+
+.activity-indicator-blade:nth-child(6) {
+  animation-delay: .5s;
+  transform: translate(625.0%, 217.7%) rotate(150deg);
+}
+
+.activity-indicator-blade:nth-child(7) {
+  animation-delay: .6s;
+  transform: translate(450.0%, 233.3%) rotate(180deg);
+}
+
+.activity-indicator-blade:nth-child(8) {
+  animation-delay: .7s;
+  transform: translate(275.0%, 217.7%) rotate(-150deg);
+}
+
+.activity-indicator-blade:nth-child(9) {
+  animation-delay: .8s;
+  transform: translate(146.9%, 175.0%) rotate(-120deg);
+}
+
+.activity-indicator-blade:nth-child(10) {
+  animation-delay: .9s;
+  transform: translate(100.0%, 116.7%) rotate(-90deg);
+}
+
+.activity-indicator-blade:nth-child(11) {
+  animation-delay: 1s;
+  transform: translate(146.9%, 58.3%) rotate(-60deg);
+}
+
+.activity-indicator-blade:nth-child(12) {
+  animation-delay: 1.1s;
+  transform: translate(275.0%, 15.6%) rotate(-30deg);
 }
