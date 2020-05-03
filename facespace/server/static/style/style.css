@@ -10,7 +10,8 @@
   --font-main-color: #dedede;
   --font-main-family: 'Avenir', 'Arial', sans;
 
-  --activity-color: rgba(193, 193, 193, 0.75);
+  --activity-color: rgb(193, 193, 193);
+  --activity-opacity: .75;
   --activity-indicator-height: 30%;
   --activity-indicator-width: 10%;
   --activity-indicator-ratio: 33.3%;
@@ -142,6 +143,7 @@ ul {
 .activity-indicator {
   display: block;
   height: 2rem;
+  opacity: var(--activity-opacity);
   position: relative;
   width: 2rem;
 }
@@ -152,6 +154,7 @@ ul {
   font-size: ;
   font-style: italic;
   font-weight: ;
+  opacity: var(--activity-opacity);
   padding: 1rem;
 }
 
@@ -195,6 +198,16 @@ ul {
 }
 
 @keyframes activity-indicator {
+  0% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@-webkit-keyframes activity-indicator {
   0% {
     opacity: 0%;
   }
