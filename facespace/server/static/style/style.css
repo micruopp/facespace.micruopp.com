@@ -199,11 +199,11 @@ ul {
 
 @keyframes activity-indicator {
   from {
-    opacity: 100%;
+    opacity: 0;
   }
 
   to {
-    opacity: 0%;
+    opacity: 1;
   }
 }
 
