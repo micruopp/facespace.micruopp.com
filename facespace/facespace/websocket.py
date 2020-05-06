@@ -1,19 +1,27 @@
+import uuid
+
 async def websocket_application(scope, receive, send):
-		while True:
-			event = await receive()
+	clients = []
+	while True:
+		event = await receive()
 
-			if event['type'] == 'websocket.connect':
-				response = { 'type': 'websocket.accept' }
+		if event['type'] == 'websocket.connect':
+			let id = uuid.uuid4()
+			clients.append(id)
+			response = { 
+				'type': 'websocket.accept',
+				'text': str(id)
+			}
+			await send(response)
+			
+		if event['type'] == 'websocket.disconnect':
+			break
+
+		if event['type'] == 'websocket.receive':
+			if event['text'] == 'ping':
+				response = {
+					'type': 'websocket.send',
+					'text': 'pong!'
+				}
 				await send(response)
-				
-			if event['type'] == 'websocket.disconnect':
-				break
-
-			if event['type'] == 'websocket.receive':
-				if event['text'] == 'ping':
-					response = {
-						'type': 'websocket.send',
-						'text': 'pong!'
-					}
-					await send(response)
 			
