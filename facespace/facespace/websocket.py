@@ -22,7 +22,7 @@ async def handleConnect(scope, receive, send):
 async def handleDisconnect(scope, receive, send):
 	return
 
-async def handleReceive(scope, receive, send):
+async def handleReceive(event, scope, receive, send):
 	if event['text'] == 'ping':
 		response = {
 			'type': 'websocket.send',
@@ -47,4 +47,4 @@ async def websocket_application(scope, receive, send):
 			break
 
 		if event['type'] == 'websocket.receive':
-			await handleReceive(scope, receive, send)
+			await handleReceive(event, scope, receive, send)
