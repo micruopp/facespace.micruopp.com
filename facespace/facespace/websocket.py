@@ -24,7 +24,7 @@ async def handleConnect(scope, receive, send):
 		'text': "UUID: " + str(_uuid)
 	}
 	await send(message)
-	await emit()
+	await emit("New client: " + str(_uuid))
 
 async def handleDisconnect(scope, receive, send):
 	return
@@ -37,11 +37,13 @@ async def handleReceive(event, scope, receive, send):
 		}
 		await send(response)
 
-async def emit():
+async def emit(message):
 	for client in clients:
-		print(client.id)
-		print(client.send)
-
+		response = {
+			'type': 'websocket.send',
+			'text': message
+		}
+		await send(response)
 
 async def websocket_application(scope, receive, send):
 	# print(scope)
