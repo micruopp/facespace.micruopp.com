@@ -24,11 +24,11 @@ async def handleDisconnect(scope, receive, send):
 
 async def handleReceive(scope, receive, send):
 	if event['text'] == 'ping':
-	response = {
-		'type': 'websocket.send',
-		'text': 'pong!'
-	}
-	await send(response)
+		response = {
+			'type': 'websocket.send',
+			'text': 'pong!'
+		}
+		await send(response)
 
 
 async def websocket_application(scope, receive, send):
