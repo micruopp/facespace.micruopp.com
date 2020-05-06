@@ -14,5 +14,7 @@ function socket() {
 
 	ws.onmessage = event => console.log(event.data);
 
-	ws.send("ping");
+	ws.onopen = function() {
+		ws.send("ping");
+	};
 }
