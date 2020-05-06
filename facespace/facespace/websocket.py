@@ -2,10 +2,27 @@ import uuid
 
 clients = []
 
+class Client:
+	def __init__(self, uuid, scope, receive, send):
+		self.id = uuid
+		self.scope = scope
+		self.receive = receive
+		self.send = send
+
+async def handleConnect(scope, receive, send):
+	return
+
+async def handleDisconnect(scope, receive, send):
+	return
+
+async def handleReceive(scope, receive, send):
+	return
+
 async def websocket_application(scope, receive, send):
 	print(scope)
 	print(receive)
 	print(send)
+	print(event)
 
 	while True:
 		event = await receive()
@@ -18,21 +35,6 @@ async def websocket_application(scope, receive, send):
 
 			_id = uuid.uuid4()
 			clients.append(_id)
-
-			id_message = "You are " + str(_id)
-			message = {
-				'type': 'websocket.send',
-				'text': id_message
-			}
-			await send(message)
-
-			clients_message = "New client connected: \n".join((str(i) + "\n") for i in clients)
-			message_2 = {
-				'type': 'websocket.send',
-				'text': clients_message
-			}
-			await send(message_2)
-
 
 		if event['type'] == 'websocket.disconnect':
 			break
