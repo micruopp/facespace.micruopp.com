@@ -20,7 +20,9 @@ function socket() {
 		setTimeout(fn, delay);
 	}
 
-	ws.onopen = function() {		
+	ws.onopen = function(event) {
+		console.log(event.data);
+		console.log(event);	
 		setTimeout(fn, delay);
 	};
 }
