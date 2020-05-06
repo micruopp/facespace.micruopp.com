@@ -10,13 +10,26 @@ class Client:
 		self.send = send
 
 async def handleConnect(scope, receive, send):
-	return
+	response = {
+		'type': 'websocket.accept',
+	}
+	await send(response)
+
+	_id = uuid.uuid4()
+	clients.append(_id)
+
 
 async def handleDisconnect(scope, receive, send):
 	return
 
 async def handleReceive(scope, receive, send):
-	return
+	if event['text'] == 'ping':
+	response = {
+		'type': 'websocket.send',
+		'text': 'pong!'
+	}
+	await send(response)
+
 
 async def websocket_application(scope, receive, send):
 	print(scope)
@@ -25,25 +38,13 @@ async def websocket_application(scope, receive, send):
 
 	while True:
 		event = await receive()
-		print(event)
+		# print(event)
 
 		if event['type'] == 'websocket.connect':
-			response = {
-				'type': 'websocket.accept',
-			}
-			await send(response)
-
-			_id = uuid.uuid4()
-			clients.append(_id)
-
+			await handleConnect(scope, receive, send)
+			
 		if event['type'] == 'websocket.disconnect':
 			break
 
 		if event['type'] == 'websocket.receive':
-			if event['text'] == 'ping':
-				response = {
-					'type': 'websocket.send',
-					'text': 'pong!'
-				}
-				await send(response)
-
+			await handleReceive(scope, receive, send)
