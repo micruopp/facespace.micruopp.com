@@ -16,3 +16,12 @@ async def websocket_application(scope, receive, send):
 					'text': 'pong!'
 				}
 				await send(response)
+
+def handleClientConnect():
+	pass
+
+def handleClientDisconnect():
+	pass
+
+def handleClientReceive():
+	pass
