@@ -22,12 +22,12 @@ async def websocket_application(scope, receive, send):
 			}
 			await send(message)
 
-			clients_message = "New client connected: ".join(str(i) for i in clients)
-			message_2 = {
-				'type': 'websocket.send',
-				'text': clients_message
-			}
-			await send(message_2)
+			# clients_message = "New client connected: ".join(str(i) for i in clients)
+			# message_2 = {
+			# 	'type': 'websocket.send',
+			# 	'text': clients_message
+			# }
+			# await send(message_2)
 
 
 		if event['type'] == 'websocket.disconnect':
