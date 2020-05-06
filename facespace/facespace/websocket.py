@@ -3,6 +3,10 @@ import uuid
 clients = []
 
 async def websocket_application(scope, receive, send):
+	print(scope)
+	print(receive)
+	print(send)
+
 	while True:
 		event = await receive()
 
@@ -21,8 +25,6 @@ async def websocket_application(scope, receive, send):
 				'text': id_message
 			}
 			await send(message)
-
-			print(self)
 
 			clients_message = "New client connected: \n".join((str(i) + "\n") for i in clients)
 			message_2 = {
