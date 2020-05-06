@@ -15,9 +15,15 @@ async def handleConnect(scope, receive, send):
 	}
 	await send(response)
 
-	_id = uuid.uuid4()
-	clients.append(_id)
+	uuid = uuid.uuid4()
+	client = Client(uuid, scope, receive, send)
 
+	clients.append(_id)
+	message = {
+		'type': 'websocket.send',
+		'text': "UUID: " + uuid
+	}
+	await send(message)
 
 async def handleDisconnect(scope, receive, send):
 	return
