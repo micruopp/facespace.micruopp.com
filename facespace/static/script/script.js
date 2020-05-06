@@ -14,7 +14,13 @@ function socket() {
 
 	ws.onmessage = event => console.log(event.data);
 
-	ws.onopen = function() {
+	let delay = 1.0;
+	function fn() {
 		ws.send("ping");
+		setTimeout(fn, delay);
+	}
+
+	ws.onopen = function() {		
+		setTimeout(fn, delay);
 	};
 }
