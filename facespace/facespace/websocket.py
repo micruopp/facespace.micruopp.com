@@ -43,7 +43,7 @@ async def emit(message):
 			'type': 'websocket.send',
 			'text': message
 		}
-		await send(response)
+		await client.send(response)
 
 async def websocket_application(scope, receive, send):
 	# print(scope)
