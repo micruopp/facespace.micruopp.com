@@ -20,9 +20,13 @@ function socket() {
 		setTimeout(fn, delay);
 	}
 
+	let id = null;
+	function getId() {
+		ws.send("whoami");
+	}
+
 	ws.onopen = function(event) {
-		console.log(event.data);
-		console.log(event);	
+		getId();
 		setTimeout(fn, delay);
 	};
 }
