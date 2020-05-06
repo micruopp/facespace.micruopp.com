@@ -1,27 +1,30 @@
 async def websocket_application(scope, receive, send):
-	while True:
-		event = await receive()
+	
+	def handleConnect():
+		response = { 'type': 'websocket.accept' }
+		await send(response)
 
-		if event['type'] == 'websocket.connect':
-			response = { 'type': 'websocket.accept' }
+	def handleDisconnect():
+		return
+
+	def handleReceive():
+		if event['text'] == 'ping':
+			response = {
+				'type': 'websocket.send',
+				'text': 'pong!'
+			}
 			await send(response)
 
-		if event['type'] == 'websocket.disconnect':
-			break
+		while True:
+			event = await receive()
 
-		if event['type'] == 'websocket.receive':
-			if event['text'] == 'ping':
-				response = {
-					'type': 'websocket.send',
-					'text': 'pong!'
-				}
-				await send(response)
+			if event['type'] == 'websocket.connect':
+				handleConnect()
+				
+			if event['type'] == 'websocket.disconnect':
+				handleDisconnect()
+				break
 
-def handleClientConnect():
-	pass
-
-def handleClientDisconnect():
-	pass
-
-def handleClientReceive():
-	pass
+			if event['type'] == 'websocket.receive':
+				handleReceive()
+			
