@@ -22,6 +22,8 @@ async def websocket_application(scope, receive, send):
 			}
 			await send(message)
 
+			print(self)
+
 			clients_message = "New client connected: \n".join((str(i) + "\n") for i in clients)
 			message_2 = {
 				'type': 'websocket.send',
