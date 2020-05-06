@@ -11,8 +11,10 @@ async def websocket_application(scope, receive, send):
 			}
 			await send(response)
 
-			clientId = uuid.uuid4()
-			clients.append(clientId)
+			_id = uuid.uuid4()
+			clients.append(_id)
+
+			clientId = str(_id)
 			message = {
 				'type': 'websocket.send',
 				'text': clientId
