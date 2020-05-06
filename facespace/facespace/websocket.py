@@ -6,14 +6,14 @@ async def websocket_application(scope, receive, send):
 		event = await receive()
 
 		if event['type'] == 'websocket.connect':
-			let id = uuid.uuid4()
+			id = uuid.uuid4()
 			clients.append(id)
-			response = { 
+			response = {
 				'type': 'websocket.accept',
 				'text': str(id)
 			}
 			await send(response)
-			
+
 		if event['type'] == 'websocket.disconnect':
 			break
 
@@ -24,4 +24,4 @@ async def websocket_application(scope, receive, send):
 					'text': 'pong!'
 				}
 				await send(response)
-			
+
