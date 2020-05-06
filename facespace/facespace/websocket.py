@@ -1,13 +1,13 @@
 async def websocket_application(scope, receive, send):
-	
-	def handleConnect():
+
+	async def handleConnect():
 		response = { 'type': 'websocket.accept' }
 		await send(response)
 
-	def handleDisconnect():
+	async def handleDisconnect():
 		return
 
-	def handleReceive():
+	async def handleReceive():
 		if event['text'] == 'ping':
 			response = {
 				'type': 'websocket.send',
