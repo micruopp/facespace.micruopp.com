@@ -21,7 +21,7 @@ async def handleConnect(scope, receive, send):
 	clients.append(client)
 	message = {
 		'type': 'websocket.send',
-		'text': "UUID: " + _uuid
+		'text': "UUID: " + str(_uuid)
 	}
 	await send(message)
 
