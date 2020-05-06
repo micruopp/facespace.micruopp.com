@@ -14,7 +14,7 @@ function socket() {
 
 	ws.onmessage = event => console.log(event.data);
 
-	let delay = 1.0;
+	let delay = 1000; // ms
 	function fn() {
 		ws.send("ping");
 		setTimeout(fn, delay);
