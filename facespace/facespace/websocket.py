@@ -22,10 +22,10 @@ async def websocket_application(scope, receive, send):
 	print(scope)
 	print(receive)
 	print(send)
-	print(event)
 
 	while True:
 		event = await receive()
+		print(event)
 
 		if event['type'] == 'websocket.connect':
 			response = {
