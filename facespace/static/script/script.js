@@ -2,6 +2,14 @@
 
 window.onload = main;
 
+const statusBoxId = ".status.box";
+const statusLabelId = ".activity-status";
+const contentId = ".container";
+const mainId = ".main";
+const videoBoxId = ".videobox";
+
+const hiddenClass = "hidden";
+
 function main() {
 	socket();
 }
@@ -17,12 +25,19 @@ function socket() {
 	}
 
 	ws.onopen = function(event) {
-		console.log("Socket open.");
-		console.log(event.data);
+		showVideoPlayers();
 		setTimeout(fn, delay);
 	};
 
 	ws.onmessage = function(event) {
 		console.log(event.data);
 	};
+}
+
+function showVideoPlayers() {
+	let videoBox = document.querySelector(videoBoxId);
+	let mainBox = document.querySelector(mainId);
+
+	videoBox.classList.remove(hiddenClass);
+	mainBox.classList.add(hiddenClass);
 }

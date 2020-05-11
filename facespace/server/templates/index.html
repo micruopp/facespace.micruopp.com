@@ -4,21 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FaceSpace</title>
-  
   <link type="text/css" rel="stylesheet" href="/static/style/style.css">
   <script type="text/javascript" src="/static/script/script.js"></script>
-
-  <!-- Uncomment to serve static files locally -->
-  <!-- {% load static %} -->
-  <!-- <link type="text/css" rel="stylesheet" href="{% static 'style/style.css' %}"> -->
-  <!-- <script type="text/javascript" src="{% static 'script/script.js' %}"></script> -->
 </head>
 <body id="facespace">
   <div class="container">
+    <div class="videobox hidden">
+      <video></video>
+    </div>
     <div class="main">
       <div></div>
       <h1 class="title">FaceSpace</h1>
-      <div class="box">
+      <div class="status box">
         <div class="activity-indicator">
           <div class="activity-indicator-blade">
             <div class="activity-indiciator-blade-top"></div>
