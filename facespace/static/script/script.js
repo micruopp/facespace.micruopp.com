@@ -40,6 +40,7 @@ function showVideoPlayers() {
 
 	videoBox.classList.remove(hiddenClass);
 	mainBox.classList.add(hiddenClass);
+	stream();
 }
 
 function stream() {
