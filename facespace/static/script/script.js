@@ -25,8 +25,8 @@ function socket() {
 	}
 
 	ws.onopen = function(event) {
-		showVideoPlayers();
 		setTimeout(fn, delay);
+		showVideoPlayers();
 	};
 
 	ws.onmessage = function(event) {
