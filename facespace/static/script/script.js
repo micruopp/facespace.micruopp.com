@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 window.onload = main;
 
@@ -40,4 +40,34 @@ function showVideoPlayers() {
 
 	videoBox.classList.remove(hiddenClass);
 	mainBox.classList.add(hiddenClass);
+}
+
+function stream() {
+	let player1 = document.querySelector('video');
+
+	if (window.isSecureContext) { 
+		console.log("Context is secure.");
+
+		let constraints = { audio: true, video: true };
+
+		navigator.mediaDevices.getUserMedia(constraints)
+			.then(function(stream) {
+			  /* use the stream */
+			  console.log("Got stream.");
+			  console.log(stream);
+
+			  player1.srcObject = stream;
+			  player1.onloadedmetadata = function(e) {
+			    player1.play();
+			  };
+			})
+			.catch(function(err) {
+			  /* handle the error */
+			  console.log("Uh-oh...");
+			  console.log(err);
+			});
+
+	} else {
+		console.log("Not a secure context.");
+	}
 }
