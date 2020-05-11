@@ -148,10 +148,11 @@ video {
 }
 
 .videobox {
-  background-color: red;
-  /*display: flex;*/
-  /*flex: 1 1 auto;*/
-  /*width: 100%;*/
+  background-color: #ddf;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
 }
 
 .hidden {
