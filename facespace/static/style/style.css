@@ -143,8 +143,8 @@ ul {
 /* Video */
 
 video {
-  height: 100%;
-  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .videobox {
@@ -152,7 +152,6 @@ video {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-  object-fit: contain;
   width: 100%;
 }
 
