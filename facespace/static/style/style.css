@@ -152,6 +152,7 @@ video {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
+  object-fit: contain;
   width: 100%;
 }
 
