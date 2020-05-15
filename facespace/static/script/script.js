@@ -7,7 +7,6 @@ const statusLabelId = ".activity-status";
 const contentId = ".container";
 const mainId = ".main";
 const videoBoxId = ".videobox";
-
 const hiddenClass = "hidden";
 
 function main() {
@@ -76,4 +75,31 @@ function main() {
 	socket();
 }
 
+
+
+let localStream = null;
+
+function requestCameraAccess() {
+
+	function handleAccessGrant(cameraStream) {
+		// player1.srcObject = cameraStream;
+		// player1.onloadedmetadata = function(e) {
+			// player1.play();
+		// };
+	}
+
+	function handleAccessDeny(err) {
+		console.log(err);
+	}
+
+	if (window.isSecureContext) { 
+		let constraints = { audio: true, video: true };
+		navigator.mediaDevices.getUserMedia(constraints)
+			.then(handleAccessGrant)
+			.catch(handleAccessDeny);
+	} else {
+		console.log("Not a secure context. Exiting...");
+	}
+
+}
 
