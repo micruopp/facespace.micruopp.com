@@ -6,6 +6,7 @@ const statusBoxId = ".status.box";
 const statusLabelId = ".activity-status";
 const contentId = ".container";
 const mainId = ".main";
+const footerId = ".footer";
 const videoBoxId = ".videobox";
 const hiddenClass = "hidden";
 
@@ -64,9 +65,12 @@ function main() {
 	function showVideoPlayers() {
 		let videoBox = document.querySelector(videoBoxId);
 		let mainBox = document.querySelector(mainId);
+		let footerBox = document.querySelector(footerId);
 
 		videoBox.classList.remove(hiddenClass);
 		mainBox.classList.add(hiddenClass);
+		footerBox.classList.add(hiddenClass);
+		
 		stream();
 	}
 
