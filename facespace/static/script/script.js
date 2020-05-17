@@ -2,6 +2,108 @@
 
 window.onload = main;
 
+function main() {
+
+	initializeSocket();
+
+}
+
+
+
+let localStream = null;
+let otherStream = null;
+
+let localVideoElement = null;
+let otherVideoElement = null;
+
+function requestCameraAccess() {
+
+	function handleAccessGrant(cameraStream) {
+		localStream = cameraStream;
+		localVideoElement.srcObject = cameraStream;
+		localVideoElement.onloadedmetadata = function(e) { localVideoElement.play() };
+	}
+
+	function handleAccessDeny(err) {
+		console.log(err);
+	}
+
+	if (window.isSecureContext) { 
+		let constraints = { audio: true, video: true };
+		navigator.mediaDevices.getUserMedia(constraints)
+			.then(handleAccessGrant)
+			.catch(handleAccessDeny);
+	} else {
+		console.log("Not a secure context. Exiting...");
+	}
+
+}
+
+
+let socketAddr = 'wss://facespace.micruopp.com';
+let wss = null;
+
+function initializeSocket() {
+	wss = new WebSocket(socketAddr);
+
+	// TODO: set binary type
+	// wss.binaryType = 'blob' || 'arrayBuffer';
+
+	// TODO: write event handlers
+	wss.onopen = handleSocketOpen;
+	wss.onmessage = handleSocketReceiveMessage;
+	wss.onclose = handleSocketClose;
+	wss.onerror = handleSocketError;
+}
+
+function handleSocketOpen(e) {}
+
+function handleSocketClose(e) {}
+
+function handleSocketReceiveMessage(e) {}
+
+function handleSocketError(e) {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const statusBoxId = ".status.box";
 const statusLabelId = ".activity-status";
 const contentId = ".container";
@@ -10,7 +112,7 @@ const footerId = ".footer";
 const videoBoxId = ".videobox";
 const hiddenClass = "hidden";
 
-function main() {
+function __main() {
 
 	function stream() {
 		let player1 = document.querySelector('video');
@@ -70,7 +172,7 @@ function main() {
 		videoBox.classList.remove(hiddenClass);
 		mainBox.classList.add(hiddenClass);
 		footerBox.classList.add(hiddenClass);
-		
+
 		stream();
 	}
 
@@ -79,31 +181,4 @@ function main() {
 	socket();
 }
 
-
-
-let localStream = null;
-
-function requestCameraAccess() {
-
-	function handleAccessGrant(cameraStream) {
-		// player1.srcObject = cameraStream;
-		// player1.onloadedmetadata = function(e) {
-			// player1.play();
-		// };
-	}
-
-	function handleAccessDeny(err) {
-		console.log(err);
-	}
-
-	if (window.isSecureContext) { 
-		let constraints = { audio: true, video: true };
-		navigator.mediaDevices.getUserMedia(constraints)
-			.then(handleAccessGrant)
-			.catch(handleAccessDeny);
-	} else {
-		console.log("Not a secure context. Exiting...");
-	}
-
-}
 
