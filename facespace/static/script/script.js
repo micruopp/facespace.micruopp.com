@@ -8,7 +8,7 @@ function main() {
 
 }
 
-
+// Camera Access
 
 let localStream = null;
 let otherStream = null;
@@ -39,6 +39,7 @@ function requestCameraAccess() {
 
 }
 
+// Socket
 
 let socketAddr = 'wss://facespace.micruopp.com';
 let wss = null;
@@ -63,6 +64,12 @@ function handleSocketClose(e) {}
 function handleSocketReceiveMessage(e) {}
 
 function handleSocketError(e) {}
+
+// Streaming
+
+function streamLocalCamera() {
+	
+}
 
 
 
