@@ -5,7 +5,8 @@ window.onload = main;
 function main() {
 
 	initializeSocket();
-
+	streamLocalCamera();
+	
 }
 
 // Camera Access
@@ -19,6 +20,7 @@ let otherVideoElement = null;
 function requestCameraAccess() {
 
 	function handleAccessGrant(cameraStream) {
+		localVideoElement = document.querySelector('#local-video-player');
 		localStream = cameraStream;
 		localVideoElement.srcObject = cameraStream;
 		localVideoElement.onloadedmetadata = function(e) { localVideoElement.play() };
@@ -68,7 +70,7 @@ function handleSocketError(e) {}
 // Streaming
 
 function streamLocalCamera() {
-	
+	requestCameraAccess();
 }
 
 

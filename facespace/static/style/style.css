@@ -118,10 +118,10 @@ ul {
 
   position: absolute;
   /* TODO: These constants are dependant on screen size. */
-  bottom: 75px;
-  left: 75px;
-  height: 150px;
-  width: 150px;
+  bottom: 25px;
+  left: 25px;
+  height: 250px;
+  width: 250px;
 }
 
 .other-video {
