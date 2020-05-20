@@ -119,6 +119,10 @@ ul {
 
 .other-video {
   background-color: blue;
+
+  position: absolute;
+  bottom: 10%:
+  left: 10%;
 }
 
 
