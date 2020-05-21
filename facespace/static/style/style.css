@@ -41,7 +41,7 @@ div,
 header,
 main,
 footer {
-  display: flex;
+  display: block;
   position: relative;
   margin: 0;
   padding: 0;
