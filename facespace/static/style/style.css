@@ -8,7 +8,7 @@
 :root {
   --background-color: #111;
   --font-main-color: #dedede;
-  --font-main-family: 'Avenir', 'Arial', sans;
+  --fontstack-main: 'Avenir', 'Arial', sans-serif;
 
   --activity-color: rgb(193, 193, 193);
   --activity-opacity: .75;
@@ -47,63 +47,127 @@ footer {
   padding: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  color: inherit;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
+a,
 a:active,
 a:hover,
 a:visited {
   color: inherit;
 }
 
+a,
+a:active,
+a:visited {
+  text-decoration: none;
+}
+
 a:hover {
   text-decoration: underline;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
+
+
+
+
 /* FaceSpace */
+
 #facespace {
   background-color: var(--background-color);
   color: var(--font-main-color);
-	font-family: var(--font-main-family);
+	font-family: var(--fontstack-main);
 }
+
+.view {
+  height: 100%;
+}
+
+.box {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+}
+
+.video {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.local-video {
+  background-color: orange;
+
+  position: absolute;
+  /* TODO: These constants are dependant on screen size. */
+  bottom: 25px;
+  left: 25px;
+  height: 250px;
+  width: 250px;
+}
+
+.other-video {
+  background-color: blue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* */
 
-.container {
+._container {
   align-items: center;
 	display: flex;
 	flex: 1 0 0;
   flex-direction: column;
   justify-content: space-between;
   margin: auto;
-  min-height: 100%;
+  height: 100%;
 }
 
-.header {
+._header {
   /*flex: 1 0 auto;*/
 }
 
-.main {
+._main {
   align-items: center;
   display: flex;
   flex: 1 0 auto;
@@ -112,7 +176,7 @@ ul {
   text-align: center;
 }
 
-.box {
+._box {
   align-items: center;
   display: flex;
   /*flex: 0 0 auto;*/
@@ -121,19 +185,19 @@ ul {
   /*opacity: 0;*/
 }
 
-.footer {
+._footer {
   flex: 0 0 auto;
 }
 
 /* */
 
-.legal {
+._legal {
   font-size: .8rem;
   padding: 1rem;
   text-align: center;
 }
 
-.title {
+._title {
   font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', sans;
   font-size: 2.5rem;
   padding: 2.5rem 1rem;
@@ -142,20 +206,22 @@ ul {
 
 /* Video */
 
-video {
-  max-height: 100%;
-  max-width: 100%;
+._video {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
 }
 
-.videobox {
+._videobox {
   /*background-color: #ddf;*/
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   width: 100%;
+  height: 100%;
 }
 
-.hidden {
+._hidden {
   display: none;
 }
 
@@ -207,7 +273,9 @@ video {
 
 
 
-/* Activity Indicator */
+/* 
+ * Activity Indicator
+ */
 
 .activity-indicator {
   display: block;

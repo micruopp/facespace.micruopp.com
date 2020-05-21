@@ -2,14 +2,126 @@
 
 window.onload = main;
 
+function main() {
+
+	initializeSocket();
+	streamLocalCamera();
+	
+}
+
+// Camera Access
+
+let localStream = null;
+let otherStream = null;
+
+let localVideoElement = null;
+let otherVideoElement = null;
+
+function requestCameraAccess() {
+
+	function handleAccessGrant(cameraStream) {
+		localVideoElement = document.querySelector('#local-video-player');
+		localStream = cameraStream;
+		localVideoElement.srcObject = cameraStream;
+		localVideoElement.onloadedmetadata = function(e) { localVideoElement.play() };
+	}
+
+	function handleAccessDeny(err) {
+		console.log(err);
+	}
+
+	if (window.isSecureContext) { 
+		let constraints = { audio: true, video: true };
+		navigator.mediaDevices.getUserMedia(constraints)
+			.then(handleAccessGrant)
+			.catch(handleAccessDeny);
+	} else {
+		console.log("Not a secure context. Exiting...");
+	}
+
+}
+
+// Socket
+
+let socketAddr = 'wss://facespace.micruopp.com';
+let wss = null;
+
+function initializeSocket() {
+	wss = new WebSocket(socketAddr);
+
+	// TODO: set binary type
+	// wss.binaryType = 'blob' || 'arrayBuffer';
+
+	// TODO: write event handlers
+	wss.onopen = handleSocketOpen;
+	wss.onmessage = handleSocketReceiveMessage;
+	wss.onclose = handleSocketClose;
+	wss.onerror = handleSocketError;
+}
+
+function handleSocketOpen(e) {}
+
+function handleSocketClose(e) {}
+
+function handleSocketReceiveMessage(e) {}
+
+function handleSocketError(e) {}
+
+// Streaming
+
+function streamLocalCamera() {
+	requestCameraAccess();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const statusBoxId = ".status.box";
 const statusLabelId = ".activity-status";
 const contentId = ".container";
 const mainId = ".main";
+const footerId = ".footer";
 const videoBoxId = ".videobox";
 const hiddenClass = "hidden";
 
-function main() {
+function __main() {
 
 	function stream() {
 		let player1 = document.querySelector('video');
@@ -64,9 +176,12 @@ function main() {
 	function showVideoPlayers() {
 		let videoBox = document.querySelector(videoBoxId);
 		let mainBox = document.querySelector(mainId);
+		let footerBox = document.querySelector(footerId);
 
 		videoBox.classList.remove(hiddenClass);
 		mainBox.classList.add(hiddenClass);
+		footerBox.classList.add(hiddenClass);
+
 		stream();
 	}
 
