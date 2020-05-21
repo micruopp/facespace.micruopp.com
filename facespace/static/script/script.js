@@ -7,7 +7,6 @@ const statusLabelId = ".activity-status";
 const contentId = ".container";
 const mainId = ".main";
 const videoBoxId = ".videobox";
-
 const hiddenClass = "hidden";
 
 function main() {
@@ -70,8 +69,6 @@ function main() {
 		mainBox.classList.add(hiddenClass);
 		stream();
 	}
-
-
 
 	socket();
 }
