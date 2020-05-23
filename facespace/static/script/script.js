@@ -62,7 +62,7 @@ function initializeSocket() {
 
 let delay = 1000; // ms
 function fn() {
-	ws.send("ping");
+	wss.send("ping");
 	setTimeout(fn, delay);
 }
 
