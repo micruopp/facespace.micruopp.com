@@ -30,6 +30,7 @@ async def handleDisconnect(scope, receive, send):
 	return
 
 async def handleReceive(event, scope, receive, send):
+	print(event['text'])
 	if event['text'] == 'ping':
 		response = {
 			'type': 'websocket.send',

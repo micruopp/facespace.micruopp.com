@@ -59,7 +59,16 @@ function initializeSocket() {
 	wss.onerror = handleSocketError;
 }
 
-function handleSocketOpen(e) {}
+
+let delay = 1000; // ms
+function fn() {
+	ws.send("ping");
+	setTimeout(fn, delay);
+}
+
+function handleSocketOpen(e) {
+	setTimeout(fn, delay);
+}
 
 function handleSocketClose(e) {}
 

@@ -119,7 +119,7 @@ ul {
 
 .local-video {
   background-color: var(--background-color);
-  border-radius: 1rem;
+  border-radius: .5rem;
   box-shadow: 0 0 12px 2px #1c1c1c;
   overflow: hidden;
 
