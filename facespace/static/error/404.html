@@ -5,14 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>404 | FaceSpace</title>
   <link type="text/css" rel="stylesheet" href="/static/style/style.css">
+  <style>
+    .box {
+      display: flex;
+      flex: 1 0 0;
+      flex-direction: column;
+    }
+
+    .container {
+      height: 100%;
+    }
+
+    .main {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .footer {
+      align-items: center;
+      flex: 0 0 auto;
+      padding: 1rem;
+    }
+  </style>
 </head>
 <body id="facespace">
-  <div class="container">
-    <div class="main">
+  <div class="container box">
+    <div class="main box">
       <h1>404</h1>
-      <p>We couldn't find that page!</p>
+      <p>Page does not exist.p>
     </div>
-    <div class="footer">
+    <div class="footer box">
       <p class="legal">&#169; 2020 <a href="https://www.micruopp.com">Mic Ruopp.</a> All rights reserved.</p>
     </div>
   </div>

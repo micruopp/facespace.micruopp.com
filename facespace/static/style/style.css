@@ -112,6 +112,7 @@ ul {
   margin: auto;
   max-height: 100%;
   max-width: 100%;
+  object-fit: cover;
   /*height: 100%;*/
   /*width: 100%;*/
 }
@@ -120,7 +121,6 @@ ul {
   background-color: var(--background-color);
   border-radius: 1rem;
   box-shadow: 0 0 12px 2px #1c1c1c;
-  object-fit: cover;
   overflow: hidden;
 
   position: absolute;
