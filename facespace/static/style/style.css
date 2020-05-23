@@ -109,12 +109,14 @@ ul {
 }
 
 .video {
+  margin: auto;
   max-height: 100%;
   max-width: 100%;
 }
 
 .local-video {
   background-color: orange;
+  box-shadow: 0 0 10px 5px black;
 
   position: absolute;
   /* TODO: These constants are dependant on screen size. */
