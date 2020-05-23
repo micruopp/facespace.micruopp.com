@@ -185,8 +185,6 @@ function __main() {
 		stream();
 	}
 
-
-
 	socket();
 }
 

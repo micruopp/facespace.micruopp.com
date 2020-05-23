@@ -5,15 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>502 | FaceSpace</title>
   <link type="text/css" rel="stylesheet" href="/static/style/style.css">
-  <script type="text/javascript" src="/static/script/script.js"></script>
+  <style>
+    .box {
+      display: flex;
+      flex: 1 0 0;
+      flex-direction: column;
+    }
+
+    .container {
+      height: 100%;
+    }
+
+    .main {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .footer {
+      align-items: center;
+      flex: 0 0 auto;
+      padding: 1rem;
+    }
+  </style>
 </head>
 <body id="facespace">
-  <div class="container">
-    <div class="main">
+  <div class="container box">
+    <div class="main box">
       <h1>502</h1>
       <p>Uh oh, looks like we're down right now.<br>Try again in a little bit!</p>
     </div>
-    <div class="footer">
+    <div class="footer box">
       <p class="legal">&#169; 2020 <a href="https://www.micruopp.com">Mic Ruopp.</a> All rights reserved.</p>
     </div>
   </div>
