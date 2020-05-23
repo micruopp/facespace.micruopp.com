@@ -108,6 +108,10 @@ ul {
   flex-direction: column;
 }
 
+video {
+  height: 0;
+  width: 0;
+}
 .video {
   margin: auto;
   max-height: 100%;
