@@ -115,8 +115,9 @@ ul {
 }
 
 .local-video {
-  background-color: orange;
-  box-shadow: 0 0 10px 5px black;
+  background-color: var(--background-color);
+  border-radius: 5rem;
+  box-shadow: 0 0 10px 5px #dedede;
 
   position: absolute;
   /* TODO: These constants are dependant on screen size. */
