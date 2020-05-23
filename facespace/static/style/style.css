@@ -116,8 +116,9 @@ ul {
 
 .local-video {
   background-color: var(--background-color);
-  border-radius: 5rem;
-  box-shadow: 0 0 10px 5px #dedede;
+  border-radius: 1rem;
+  box-shadow: 0 0 12px 2px #1c1c1c;
+  overflow: hidden;
 
   position: absolute;
   /* TODO: These constants are dependant on screen size. */
