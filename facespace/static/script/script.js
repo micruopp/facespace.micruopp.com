@@ -72,7 +72,9 @@ function handleSocketOpen(e) {
 
 function handleSocketClose(e) {}
 
-function handleSocketReceiveMessage(e) {}
+function handleSocketReceiveMessage(e) {
+	console.log(e.data);
+}
 
 function handleSocketError(e) {}
 
