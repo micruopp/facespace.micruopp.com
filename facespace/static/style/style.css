@@ -124,11 +124,12 @@ ul {
   overflow: hidden;
 
   position: absolute;
+  flex-basis: auto;
   /* TODO: These constants are dependant on screen size. */
   bottom: 25px;
   left: 25px;
-  height: 250px;
-  width: 250px;
+  max-height: 250px;
+  max-width: 250px;
 }
 
 .other-video {
