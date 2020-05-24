@@ -67,7 +67,7 @@ function fn() {
 }
 
 function handleSocketOpen(e) {
-	setTimeout(fn, delay);
+	// setTimeout(fn, delay);
 }
 
 function handleSocketClose(e) {}
