@@ -51,6 +51,8 @@ async def websocket_application(scope, receive, send):
 	# print(receive)
 	# print(send)
 
+	# TODO: Create client here and pass that as parameter instead.
+
 	while True:
 		event = await receive()
 		# print(event)
