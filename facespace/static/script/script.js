@@ -5,7 +5,7 @@ window.onload = main;
 function main() {
 
 	initializeSocket();
-	streamLocalCamera();
+	mirrorLocalCamera();
 	
 }
 
@@ -62,7 +62,9 @@ function initializeSocket() {
 
 let delay = 1000; // ms
 function fn() {
-	wss.send("ping");
+	// wss.send("ping");
+
+	// Set the next tick
 	setTimeout(fn, delay);
 }
 
@@ -80,7 +82,7 @@ function handleSocketError(e) {}
 
 // Streaming
 
-function streamLocalCamera() {
+function mirrorLocalCamera() {
 	requestCameraAccess();
 }
 
